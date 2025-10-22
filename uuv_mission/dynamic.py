@@ -74,9 +74,20 @@ class Mission:
         return cls(reference, cave_height, cave_depth)
 
     @classmethod
-    def from_csv(cls, file_name: str):
-        # You are required to implement this method
-        pass
+    def from_csv(cls, file_name: str): # Extract data from mission.csv class and return instance of class with refrence, cave_height, and cave_depth values.
+        # I implemented this method myself
+    
+        # Read csv with columns: reference,cave_height,cave_depth
+        data = np.loadtxt(file_name, delimiter=',', skiprows=1)
+        # Ensure 2D array even for a single row
+        if data.ndim == 1:
+            data = data.reshape(1, -1)
+        if data.shape[1] < 3:
+            raise ValueError("CSV must have at least three columns: reference,cave_height,cave_depth")
+        reference = data[:, 0]
+        cave_height = data[:, 1]
+        cave_depth = data[:, 2]
+        return cls(reference, cave_height, cave_depth)
 
 
 class ClosedLoop:
