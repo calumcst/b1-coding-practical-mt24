@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
 
 class PDController:
     def __init__(self, Kp, Kd):

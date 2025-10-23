@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 import matplotlib.pyplot as plt
 from .terrain import generate_reference_and_limits
-
+import pandas as pd
 
 class Submarine:
     def __init__(self):
@@ -78,7 +78,7 @@ class Mission:
     def from_csv(cls, file_name: str): # Extract data from mission.csv class and return instance of class with refrence, cave_height, and cave_depth values.
         # I implemented this method myself
     
-        # Read csv with columns: reference,cave_height,cave_depth
+        # Read csv with columns: reference, cave_height, cave_depth
         data = np.loadtxt(file_name, delimiter=',', skiprows=1)
         # Ensure 2D array even for a single row
         if data.ndim == 1:
