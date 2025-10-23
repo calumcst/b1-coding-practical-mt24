@@ -76,13 +76,9 @@ class Mission:
 
     @classmethod
     def from_csv(cls, file_name: str):
-        #I made this myself
 
         # Read CSV file using pandas
         df = pd.read_csv(file_name)
-
-        #Debug
-        print(df.to_string()) 
 
         # Extract columns as numpy arrays
         reference = df['reference'].to_numpy()
